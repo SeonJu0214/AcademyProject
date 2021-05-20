@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.robo.aca.admin.adminLoginAjaxMapper">
+	<!-- 관리자 ID / 비밀번호 조회 ( INDEX PAGE ) -->
+	<select id="adminInforLookup" resultType="AdminLoginDTO">
+		SELECT admin_id, admin_pwd
+		FROM admin_login
+		WHERE admin_auth = 1
+	</select>
+</mapper>

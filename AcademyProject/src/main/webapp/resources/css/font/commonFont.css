@@ -21,7 +21,8 @@ div {
 	text-decoration: none;
 }
 
-#necessaryTag, .msg {
-	color: red;
+.common-errors-msg {
+	float: left;
+	color: #FF4848;
 	font-size: small;
 }

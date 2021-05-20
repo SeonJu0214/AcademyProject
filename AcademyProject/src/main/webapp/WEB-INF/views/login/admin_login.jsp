@@ -135,21 +135,27 @@ body, html {
 					<h4>학원 관리 프로그램</h4>
 					<p class="login-title-infor-tag">✧ 학생 및 직원 관리 솔루션 ✧</p>
 					<br>
+					<!-- form 태그 START -->
 					<form:form action="${root}admin/adminLogin"
-						modelAttribute="adminLoginDTO" method="POST">
+						id="adminLoginForm" method="POST"
+						modelAttribute="adminLoginDTO">
 					<div class="login-input">
 						<div class="form-group">
 							<!-- ID -->
 							<form:input class="form-control" path="admin_id"
 								placeholder="관리자 아이디" autocomplete="off"/>
+							<div class="common-errors-msg" id="adminIdCheck">
 							<form:errors path="admin_id"/>
+							</div>
 						</div>
 						<div class="form-group">
 							<!-- 비밀번호 -->
 							<form:password class="form-control" path="admin_pwd"
 								placeholder="관리자 비밀번호" autocomplete="off"
 								onkeyup="enterkey();"/>
+							<div class="common-errors-msg" id="adminPwdCheck">
 							<form:errors path="admin_pwd"/>
+							</div>
 						</div>
 						<!-- 로그인 입력 창 END -->
 						
@@ -158,9 +164,9 @@ body, html {
 						<button type="submit" class="btn btn-outline-secondary"
 							id="loginButton">LOGIN</button>
 						</div>
-						<div class="common-msg" id="loginCheckMsg"></div>
 					</div>
 					</form:form>
+					<!-- form 태그 END -->
 				</div>
 				<p class="forget-infor-tag" id="forgetInforTag">
 					<a href="javascript:void(0);"> 🔑 아이디 / 비밀번호를 잊으셨나요?</a>
@@ -174,10 +180,67 @@ body, html {
 	
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$("#loginButton").click(function(){
-				location.href = '${root}board/main_board';
+			// ID 입력 값 존재하는지 확인
+			$("#admin_id").change(function(){
+				errorRemove("#admin_id", "#adminIdCheck");
 			});
+			
+			// 비밀번호 입력 값 존재하는지 확인
+			$("#admin_pwd").change(function(){
+				errorRemove("#admin_pwd", "#adminPwdCheck");
+			});
+			
+			var admin_id;
+			var admin_pwd;
+			var str;
+
+			$("#forgetInforTag").click(function() {
+				var x = document.getElementById("forgetInforMsg");
+
+				if (x.innerHTML === "") {
+					$.ajax({
+						url : "${root}admin/adminInforLookup",
+						type : "POST",
+						dataType : "json",
+						success : function(adminDTO) {
+							if (adminDTO != null) {
+								admin_id = adminDTO.admin_id;
+								admin_pwd = adminDTO.admin_pwd;
+
+								str = "<p>ID : ";
+								str += admin_id;
+								str += ", PASSWORD : ";
+								str += admin_pwd;
+								str += "</p>";
+
+								x.innerHTML = str;
+							}
+						},
+						error : function(data) {
+							alert("서버 에러" + data);
+						}
+					});
+				} else {
+					x.innerHTML = "";
+				}
 		});
+		
+		// 입력 값 존재하는 경우 에러 메시지 지우기
+		function errorRemove(id, msgID) {
+			var item = $(id).val();
+			
+			if (item != null || item != "") {
+				$(msgID).empty();
+				$(msgID).html("");
+			}
+		}
+		
+		// Enter 키 눌렀을 경우 로그인 처리
+		function enterkey() {
+			if (window.event.keyCode == 13) {
+				$("#adminLoginForm").submit();
+			}
+		}
 	</script>
 </body>
 </html>
