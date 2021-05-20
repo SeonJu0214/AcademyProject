@@ -17,29 +17,29 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.robo.aca.admin.login.model.AdminLoginDTO;
 import com.robo.aca.admin.login.service.AdminLoginService;
-import com.robo.aca.security.validation.ValidationService;
 
 @Controller
 public class AdminLoginController {
 	@Inject
 	AdminLoginService adminLoginService;
-	ValidationService validationService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(AdminLoginController.class);
 	
 	@PostMapping(value = "/admin/adminLogin")
 	public String adminLogin(@ModelAttribute("adminLoginDTO") @Valid AdminLoginDTO adminLoginDTO,
-			Errors errors, Model model,HttpSession session) throws Exception {	
+			Errors errors, Model model, HttpSession session) throws Exception {	
 		// 유효성 체크 ( validation )
 		if(errors.hasErrors()) {
 			logger.info("로그인 실패 (유효성 검사 :: 에러 발생)");
+
+			model.addAttribute("adminLoginDTO", adminLoginDTO);
 			
 			// 유효성 통과 못한 필드와 메시지를 핸들링
-			Map<String, String> validatorResult = validationService.validateHandling(errors);
+			Map<String, String> validatorResult = adminLoginService.validateHandling(errors);
 			for (String key : validatorResult.keySet()) {
                 model.addAttribute(key, validatorResult.get(key));
             }
-		return "redirect:/index";
+		return "index";
 		} else {
 			Map<String, Object> login = new HashMap<String, Object>();
 			login.put("admin_id", adminLoginDTO.getAdmin_id());

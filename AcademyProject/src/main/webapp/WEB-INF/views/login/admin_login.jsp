@@ -135,17 +135,21 @@ body, html {
 					<h4>학원 관리 프로그램</h4>
 					<p class="login-title-infor-tag">✧ 학생 및 직원 관리 솔루션 ✧</p>
 					<br>
+					<form:form action="${root}admin/adminLogin"
+						modelAttribute="adminLoginDTO" method="POST">
 					<div class="login-input">
 						<div class="form-group">
 							<!-- ID -->
-							<input type="text" class="form-control" id="admin_id"
-								placeholder="관리자 아이디" name="admin_id" autocomplete="off">
+							<form:input class="form-control" path="admin_id"
+								placeholder="관리자 아이디" autocomplete="off"/>
+							<form:errors path="admin_id"/>
 						</div>
 						<div class="form-group">
 							<!-- 비밀번호 -->
-							<input type="password" class="form-control" id="admin_pwd"
-								placeholder="관리자 비밀번호" name="admin_pwd" autocomplete="off"
-								onkeyup="enterkey();">
+							<form:password class="form-control" path="admin_pwd"
+								placeholder="관리자 비밀번호" autocomplete="off"
+								onkeyup="enterkey();"/>
+							<form:errors path="admin_pwd"/>
 						</div>
 						<!-- 로그인 입력 창 END -->
 						<div class="checkbox" style="float: left;">
@@ -158,6 +162,7 @@ body, html {
 						</div>
 						<div class="common-msg" id="loginCheckMsg"></div>
 					</div>
+					</form:form>
 				</div>
 				<p class="forget-infor-tag" id="forgetInforTag">
 					<a href="javascript:void(0);"> 🔑 아이디 / 비밀번호를 잊으셨나요?</a>
