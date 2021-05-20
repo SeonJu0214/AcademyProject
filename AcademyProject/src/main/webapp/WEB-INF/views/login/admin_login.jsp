@@ -67,6 +67,7 @@ body, html {
 .login-box {
 	margin-top: 50px;
 	margin-bottom: 50px;
+	margin-right: 15px;
 	height: 250px;
 }
 
@@ -123,45 +124,45 @@ body, html {
 			</div>
 
 			<div class="col-sm-7">
-				<div class="container-fluid">
-					<div class="row">
-					<div class="col-sm-1"></div>
-					<div class="col-sm-10">
-						<div class="login-box">
-							<h4>학원 관리 프로그램</h4>
-							<p class="infor-tag">✧ 학생 및 직원 관리 솔루션 ✧</p>
-							<br>
-							<div class="login-input">
-								<div class="form-group">
-									<!-- ID -->
-									<input type="text" class="form-control" id="admin_id"
-										placeholder="관리자 아이디" name="admin_id" autocomplete="off">
-								</div>
-								<div class="form-group">
-									<!-- 비밀번호 -->
-									<input type="password" class="form-control" id="admin_pwd"
-										placeholder="관리자 비밀번호" name="admin_pwd" autocomplete="off"
-										onkeyup="enterkey();">
-								</div>
-								<!-- 로그인 입력 창 END -->
-
-								<!-- 로그인 버튼 -->
-								<button type="submit" class="btn btn-outline-secondary"
-									id="login-btn">LOGIN</button>
-								<div id="loginCheckMsg" class="msg"></div>
-							</div>
+				<div class="login-box">
+					<h4>학원 관리 프로그램</h4>
+					<p class="infor-tag">✧ 학생 및 직원 관리 솔루션 ✧</p>
+					<br>
+					<div class="login-input">
+						<div class="form-group">
+							<!-- ID -->
+							<input type="text" class="form-control" id="admin_id"
+								placeholder="관리자 아이디" name="admin_id" autocomplete="off">
 						</div>
-						<p id="forgetInforTag">
-							<a href="javascript:void(0);"> 🔑 아이디 / 비밀번호를 잊으셨나요?</a>
-						</p>
-						<div id="forgetInforMsg"></div>
-					</div>
-					<div class="col-sm-1"></div>
+						<div class="form-group">
+							<!-- 비밀번호 -->
+							<input type="password" class="form-control" id="admin_pwd"
+								placeholder="관리자 비밀번호" name="admin_pwd" autocomplete="off"
+								onkeyup="enterkey();">
+						</div>
+						<!-- 로그인 입력 창 END -->
+
+						<!-- 로그인 버튼 -->
+						<button type="submit" class="btn btn-outline-secondary"
+							id="login-btn">LOGIN</button>
+						<div id="loginCheckMsg" class="msg"></div>
 					</div>
 				</div>
+				<p id="forgetInforTag">
+					<a href="javascript:void(0);"> 🔑 아이디 / 비밀번호를 잊으셨나요?</a>
+				</p>
+				<div id="forgetInforMsg"></div>
 			</div>
 			</div>
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#login-btn").click(function(){
+				location.href = '${root}board/main_board';
+			});
+		});
+	</script>
 </body>
 </html>

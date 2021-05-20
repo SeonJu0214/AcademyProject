@@ -15,5 +15,10 @@ public class IndexController {
 		logger.info("INDEX PAGE >>");
 		
 		return "index";
-	}	
+	}
+	
+	@GetMapping(value = "/board/main_board")
+	public String main_board() {
+		return "main_board";
+	}
 }
