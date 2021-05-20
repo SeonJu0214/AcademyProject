@@ -11,7 +11,7 @@ body, html {
 	margin: 0;
 }
 
-.back-img {
+.background-image {
 	background-image:
 		url("<spring:url value='/resources/img/back_img.jpg'/>");
 	background-position: center;
@@ -45,14 +45,14 @@ body, html {
 	border-radius: 10px;
 }
 
-.text-box-img {
+.rogo-image {
 	width: 250px;
 	height: 250px;
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
 
-.text-box-academy-name {
+.academy-name {
 	margin-bottom: 20px;
 	height: 30px;
 }
@@ -64,14 +64,14 @@ body, html {
 	margin: auto;
 }
 
-.login-box {
+.login {
 	margin-top: 50px;
 	margin-bottom: 50px;
 	margin-right: 15px;
 	height: 250px;
 }
 
-.infor-tag {
+.login-title-infor-tag {
 	margin-top: 5px;
 }
 
@@ -80,24 +80,24 @@ body, html {
 	margin-right: 20px;
 }
 
-#login-btn {
+.login-button button {
 	margin-top: 5px;
 	width: 100%;
 }
 
-#forgetInforTag {
+.forget-infor-tag {
 	margin-bottom: 20px;
 	height: 30px;
 	text-align: left;
 	margin-left: 20px;
 }
 
-#forgetInforTag a {
+.forget-infor-tag a {
 	color: #808080;
 	text-decoration: none;
 }
 
-#forgetInforMsg {
+.forget-infor-msg {
 	text-align: left;
 	margin-left: 20px;
 }
@@ -105,28 +105,35 @@ body, html {
 </head>
 <body>
 	<!-- 배경 이미지 -->
-	<div class="back-img"></div>
+	<div class="background-image"></div>
 
 	<!-- 가운데 텍스트 상자 -->
 	<div class="center-text-box">
+		<!-- 텍스트 상자 구간 나누기 -->
 		<div class="container-fluid">
 			<div class="row">
+			<!-- 구간 1) 로고 이미지 및 학원 이름 ( 4칸 ) -->
 			<div class="col-sm-4">
 				<div class="text-center">
-					<img alt="rogo" class="text-box-img"
-						src="<spring:url value='/resources/img/settings.png'/>"> <br>
-					<h4 class="text-box-academy-name">학원 이름</h4>
+					<img class="rogo-image" alt="rogo"
+						src="<spring:url value='/resources/img/settings.png'/>">
+					<br>
+					<h4 class="academy-name">학원 이름</h4>
 				</div>
 			</div>
+			<!-- 구간 1) END -->
 
+			<!-- 구간 2) 구분선 ( 1칸 ) -->
 			<div class="col-sm-1">
 				<div class="stripe"></div>
 			</div>
+			<!-- 구간 2) END -->
 
+			<!-- 구간 3) 로그인 입력창 및 조회 ( 7칸 ) -->
 			<div class="col-sm-7">
-				<div class="login-box">
+				<div class="login">
 					<h4>학원 관리 프로그램</h4>
-					<p class="infor-tag">✧ 학생 및 직원 관리 솔루션 ✧</p>
+					<p class="login-title-infor-tag">✧ 학생 및 직원 관리 솔루션 ✧</p>
 					<br>
 					<div class="login-input">
 						<div class="form-group">
@@ -143,23 +150,26 @@ body, html {
 						<!-- 로그인 입력 창 END -->
 
 						<!-- 로그인 버튼 -->
+						<div class="login-button">
 						<button type="submit" class="btn btn-outline-secondary"
-							id="login-btn">LOGIN</button>
-						<div id="loginCheckMsg" class="msg"></div>
+							id="loginButton">LOGIN</button>
+						</div>
+						<div class="common-msg" id="loginCheckMsg"></div>
 					</div>
 				</div>
-				<p id="forgetInforTag">
+				<p class="forget-infor-tag" id="forgetInforTag">
 					<a href="javascript:void(0);"> 🔑 아이디 / 비밀번호를 잊으셨나요?</a>
 				</p>
-				<div id="forgetInforMsg"></div>
+				<div class="forget-infor-msg" id="forgetInforMsg"></div>
 			</div>
+			<!-- 구간 3) END -->
 			</div>
 		</div>
 	</div>
 	
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$("#login-btn").click(function(){
+			$("#loginButton").click(function(){
 				location.href = '${root}board/main_board';
 			});
 		});
