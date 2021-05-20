@@ -7,5 +7,8 @@
 <title>INDEX</title>
 </head>
 <body>
+	<c:if test="${admin_id == null}">
+		<%@include file="login/admin_login.jsp"%>
+	</c:if>
 </body>
 </html>
