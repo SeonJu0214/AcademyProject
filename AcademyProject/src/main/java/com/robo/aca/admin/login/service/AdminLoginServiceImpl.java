@@ -15,7 +15,7 @@ public class AdminLoginServiceImpl implements AdminLoginService {
 
 	// 관리자 로그인 처리 ( INDEX PAGE )
 	@Override
-	public String adminLogin(Map<String, Object> login) {
+	public String adminLogin(Map<String, Object> login) throws Exception{
 		return adminLoginDAO.adminLogin(login);
 	}
 }

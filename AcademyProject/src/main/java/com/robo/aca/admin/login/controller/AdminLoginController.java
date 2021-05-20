@@ -5,41 +5,59 @@ import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.robo.aca.admin.login.model.AdminLoginDTO;
 import com.robo.aca.admin.login.service.AdminLoginService;
+import com.robo.aca.security.validation.ValidationService;
 
 @Controller
 public class AdminLoginController {
 	@Inject
 	AdminLoginService adminLoginService;
+	ValidationService validationService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(AdminLoginController.class);
 	
 	@PostMapping(value = "/admin/adminLogin")
-	public String adminLogin(@ModelAttribute("adminLoginDTO") AdminLoginDTO adminLoginDTO, HttpSession session) {		
-		Map<String, Object> login = new HashMap<String, Object>();
-		login.put("admin_id", adminLoginDTO.getAdmin_id());
-		login.put("admin_pwd", adminLoginDTO.getAdmin_pwd());
-		
-		String admin_id = adminLoginService.adminLogin(login);
-		
-		if(admin_id == null) {
-			logger.info("로그인 실패!! >>");
+	public String adminLogin(@ModelAttribute("adminLoginDTO") @Valid AdminLoginDTO adminLoginDTO,
+			Errors errors, Model model,HttpSession session) throws Exception {	
+		// 유효성 체크 ( validation )
+		if(errors.hasErrors()) {
+			logger.info("로그인 실패 (유효성 검사 :: 에러 발생)");
 			
-			return "redirect:/index";
+			// 유효성 통과 못한 필드와 메시지를 핸들링
+			Map<String, String> validatorResult = validationService.validateHandling(errors);
+			for (String key : validatorResult.keySet()) {
+                model.addAttribute(key, validatorResult.get(key));
+            }
+		return "redirect:/index";
 		} else {
-			logger.info("로그인 완료 >>");
+			Map<String, Object> login = new HashMap<String, Object>();
+			login.put("admin_id", adminLoginDTO.getAdmin_id());
+			login.put("admin_pwd", adminLoginDTO.getAdmin_pwd());
 			
-			// 세션 부여
-			session.setAttribute("admin_id", admin_id);
-			return "main_board";
+			String admin_id = adminLoginService.adminLogin(login);
+			
+			if(admin_id == null) {
+				logger.info("로그인 실패!! >>");
+				
+				return "redirect:/index";
+			} else {
+				logger.info("로그인 완료 >>");
+				
+				// 세션 부여
+				session.setAttribute("admin_id", admin_id);
+				return "main_board";
+			}
 		}
 	}
 }
