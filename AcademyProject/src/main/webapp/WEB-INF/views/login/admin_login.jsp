@@ -161,6 +161,8 @@ body, html {
 						
 						<!-- 로그인 버튼 -->
 						<div class="login-button">
+						<!-- 아이디, 비밀번호 일치하지 않을 경우 출력되는 에러 메시지 -->
+						<div class="common-errors-msg">${message}</div>
 						<button type="submit" class="btn btn-outline-secondary"
 							id="loginButton">LOGIN</button>
 						</div>
@@ -179,7 +181,7 @@ body, html {
 	</div>
 	
 	<script type="text/javascript">
-		$(document).ready(function(){
+		$(document).ready(function(){	
 			// ID 입력 값 존재하는지 확인
 			$("#admin_id").change(function(){
 				errorRemove("#admin_id", "#adminIdCheck");

@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.robo.aca.admin.login.model.AdminLoginDTO;
 import com.robo.aca.admin.login.service.AdminLoginService;
@@ -50,7 +51,9 @@ public class AdminLoginController {
 			if(admin_id == null) {
 				logger.info("로그인 실패!! >>");
 				
-				return "redirect:/index";
+				 model.addAttribute("message", "가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.");
+				
+				return "index";
 			} else {
 				logger.info("로그인 완료 >>");
 				
