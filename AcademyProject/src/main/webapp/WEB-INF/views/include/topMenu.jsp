@@ -49,11 +49,6 @@
 	font-size: 17px;
 }
 
-#navbar a:hover {
-	background-color: #ddd;
-	color: black;
-}
-
 #navbar a.active {
 	background-color: #04AA6D;
 	color: white;
