@@ -13,13 +13,18 @@
 	
 	<properties>
 		<!-- JAVA VERSION : 1.8 사용 -->
+		<!-- ▼ Properties > Project Facets > Java Version 변경 -->
 		<java-version>1.8</java-version>
-		<org.springframework-version>3.1.1.RELEASE</org.springframework-version>
-		<org.aspectj-version>1.6.10</org.aspectj-version>
+		<!-- SPRING VERSION : 5.2.9 사용 -->
+		<org.springframework-version>5.2.9.RELEASE</org.springframework-version>
+		<!-- ASPECTJ VERSION : 1.9.6 사용 -->
+		<org.aspectj-version>1.9.6</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
+	
 	<dependencies>
 		<!-- Spring -->
+		<!-- Spring Framework 의존성 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -38,7 +43,7 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 
-		<!-- AspectJ -->
+		<!-- AspectJ ( AOP ) -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
@@ -46,6 +51,7 @@
 		</dependency>
 
 		<!-- Logging -->
+		<!-- SLF4J : 로깅 Facade( 퍼사드 ) → 로깅에 대한 추상 레이어를 제공하는 Interface의 모음 -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -115,10 +121,11 @@
 		</dependency>
 
 		<!-- Test -->
+		<!-- TEST VERSION : 4.12 사용 -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.7</version>
+			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
