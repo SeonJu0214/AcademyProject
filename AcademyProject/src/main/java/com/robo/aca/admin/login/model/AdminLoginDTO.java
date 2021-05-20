@@ -21,7 +21,4 @@ public class AdminLoginDTO {
 	
 	// [ 관리자 권한 여부 : 0이면 권한 없음, 1이면 권한 있음 ]
 	private int admin_auth;
-	
-	// [ ID 정보 저장 여부 ]
-	private boolean remember_id;
 }

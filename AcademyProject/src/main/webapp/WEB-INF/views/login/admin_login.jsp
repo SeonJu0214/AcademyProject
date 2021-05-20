@@ -152,9 +152,7 @@ body, html {
 							<form:errors path="admin_pwd"/>
 						</div>
 						<!-- 로그인 입력 창 END -->
-						<div class="checkbox" style="float: left;">
-							<input type="checkbox">&nbsp;아이디 저장
-						</div>
+						
 						<!-- 로그인 버튼 -->
 						<div class="login-button">
 						<button type="submit" class="btn btn-outline-secondary"
