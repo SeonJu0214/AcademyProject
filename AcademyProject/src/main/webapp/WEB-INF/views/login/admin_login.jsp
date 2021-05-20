@@ -168,8 +168,8 @@ body, html {
 					</form:form>
 					<!-- form 태그 END -->
 				</div>
-				<p class="forget-infor-tag" id="forgetInforTag">
-					<a href="javascript:void(0);"> 🔑 아이디 / 비밀번호를 잊으셨나요?</a>
+				<p class="forget-infor-tag">
+					<a href="javascript:void(0);" id="forgetInforTag"> 🔑 아이디 / 비밀번호를 잊으셨나요?</a>
 				</p>
 				<div class="forget-infor-msg" id="forgetInforMsg"></div>
 			</div>
@@ -190,6 +190,7 @@ body, html {
 				errorRemove("#admin_pwd", "#adminPwdCheck");
 			});
 			
+			// ID, 비밀번호 찾기
 			var admin_id;
 			var admin_pwd;
 			var str;
@@ -223,6 +224,7 @@ body, html {
 				} else {
 					x.innerHTML = "";
 				}
+			});
 		});
 		
 		// 입력 값 존재하는 경우 에러 메시지 지우기
