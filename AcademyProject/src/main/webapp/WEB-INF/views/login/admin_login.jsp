@@ -98,6 +98,7 @@ body, html {
 }
 
 .forget-infor-msg {
+	color: #808080;
 	text-align: left;
 	margin-left: 20px;
 }
