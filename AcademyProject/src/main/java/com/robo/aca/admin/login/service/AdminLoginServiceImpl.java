@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
@@ -31,4 +32,10 @@ public class AdminLoginServiceImpl implements AdminLoginService {
         }
         return validatorResult;
     }
+	
+	// 로그아웃 처리
+	@Override
+	public void adminLogout(HttpSession session) {
+		session.invalidate();
+	}
 }

@@ -5,8 +5,8 @@
 <head>
 <title>SCHEDULE</title>
 <style type="text/css">
-#scheduleTable td {
-	width: 40px;
+.list-group a {
+	height: 60px;
 }
 </style>
 </head>
@@ -24,6 +24,19 @@
 							}
 						%>
 					</colgroup>
+					<tr>
+						<th><a style="background-color: yellow;">
+							&nbsp;&nbsp;&nbsp;&nbsp;</a>&nbsp;온라인
+						</th>
+						<th><a style="background-color: green;">
+							&nbsp;&nbsp;&nbsp;&nbsp;</a>&nbsp;오프라인
+						</th>
+						<th colspan="3">수업 시간표</th>
+						<th colspan="2"></th>
+					</tr>
+					<tr>
+						<td colspan="7"></td>
+					</tr>
 					<tr style="background-color: #F7F7F7;">
 						<th>월요일</th>
 						<th>화요일</th>
@@ -35,32 +48,14 @@
 					</tr>
 					<tr>
 						<td>
-							<table class="table table-hover" style="text-align: center;"
-								id="scheduleTable">
-								<colgroup>
-									<col style="width: 50%">
-									<col style="width: 50%">
-								</colgroup>
-								<tr style="background-color: yellow;">
-									<th colspan="2">강좌명
-									</th>
-								</tr>
-								<tr>
-									<td colspan="2">강의 장소</td>
-								</tr>
-								<tr>
-									<td colspan="2">강의 시간</td>
-								</tr>
-								<tr>
-									<td colspan="2">강사 이름</td>
-								</tr>
-								<tr>
-									<td colspan="2">강사 번호</td>
-								</tr>
-								<tr>
-									<td colspan="2">수강 인원</td>
-								</tr>
-							</table>
+							<div class="list-group" style="margin-bottom: 20px;">
+								<a href="#" class="list-group-item list-group-item-action">강좌명</a>
+								<a href="#" class="list-group-item list-group-item-action">강의 장소</a>
+								<a href="#" class="list-group-item list-group-item-action">강의 시간</a>
+								<a href="#" class="list-group-item list-group-item-action">강사 이름</a>
+								<a href="#" class="list-group-item list-group-item-action">강사 번호</a>
+								<a href="#" class="list-group-item list-group-item-action">수강 인원</a>
+							</div>
 						</td>
 						<td></td>
 						<td></td>

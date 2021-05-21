@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -62,5 +63,14 @@ public class AdminLoginController {
 				return "main_board";
 			}
 		}
+	}
+	
+	// 로그아웃 처리
+	@GetMapping("/admin/adminLogout")
+	public String adminLogout(HttpSession session) {
+		adminLoginService.adminLogout(session);
+		logger.info("로그아웃 처리 완료.");
+		
+		return "redirect:/index";
 	}
 }
