@@ -6,6 +6,10 @@
 <title>SCHEDULE</title>
 <style type="text/css">
 .list-group a {
+	height: 50px;
+}
+
+th {
 	height: 60px;
 }
 </style>
@@ -25,26 +29,26 @@
 						%>
 					</colgroup>
 					<tr>
-						<th><a style="background-color: yellow;">
+						<th class="align-middle"><a style="background-color: yellow;">
 							&nbsp;&nbsp;&nbsp;&nbsp;</a>&nbsp;온라인
 						</th>
-						<th><a style="background-color: green;">
+						<th class="align-middle"><a style="background-color: green;">
 							&nbsp;&nbsp;&nbsp;&nbsp;</a>&nbsp;오프라인
 						</th>
-						<th colspan="3">수업 시간표</th>
-						<th colspan="2"></th>
+						<th colspan="3" class="align-middle">수업 시간표</th>
+						<th colspan="2" class="align-middle"></th>
 					</tr>
 					<tr>
 						<td colspan="7"></td>
 					</tr>
 					<tr style="background-color: #F7F7F7;">
-						<th>월요일</th>
-						<th>화요일</th>
-						<th>수요일</th>
-						<th>목요일</th>
-						<th>금요일</th>
-						<th>토요일</th>
-						<th>일요일</th>
+						<th class="align-middle">월요일</th>
+						<th class="align-middle">화요일</th>
+						<th class="align-middle">수요일</th>
+						<th class="align-middle">목요일</th>
+						<th class="align-middle">금요일</th>
+						<th class="align-middle">토요일</th>
+						<th class="align-middle">일요일</th>
 					</tr>
 					<tr>
 						<td>
