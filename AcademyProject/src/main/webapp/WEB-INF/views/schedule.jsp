@@ -21,7 +21,7 @@ th {
 				<table class="table table-bordered" style="text-align: center;">
 					<colgroup>
 						<%
-							for (int i = 0; i <= 7; i++) {
+							for (int i = 0; i <= 6; i++) {
 						%>
 						<col style="width: 14%">
 						<%
@@ -52,7 +52,7 @@ th {
 					</tr>
 					<tr>
 						<td>
-							<div class="list-group" style="margin-bottom: 20px;">
+							<div class="list-group" style="margin-bottom: 20px; width: 100%;">
 								<a href="#" class="list-group-item list-group-item-action">강좌명</a>
 								<a href="#" class="list-group-item list-group-item-action">강의 장소</a>
 								<a href="#" class="list-group-item list-group-item-action">강의 시간</a>
