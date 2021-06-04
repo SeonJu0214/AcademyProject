@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
 <head>
 <%@include file="../include/head.jsp"%>
@@ -102,6 +102,48 @@ body, html {
 	text-align: left;
 	margin-left: 20px;
 }
+
+.form_toggle {
+	display: inline-block;
+	overflow: hidden;
+}
+
+.form_toggle-item {
+	float: left;
+	display: inline-block;
+}
+
+.form_toggle-item input[type=radio] {
+	display: none;
+}
+
+.form_toggle-item label {
+	display: inline-block;
+	padding: 0px 15px;
+	line-height: 34px;
+	border: 1px solid #999;
+	border-right: none;
+	cursor: pointer;
+	user-select: none;
+}
+
+.form_toggle .item-1 label {
+	border-radius: 6px 0 0 6px;
+}
+
+.form_toggle .item-2 label {
+	border-radius: 0 6px 6px 0;
+	border-right: 1px solid #999;
+}
+
+/* Checked */
+.form_toggle .item-1 input[type=radio]:checked+label {
+	background: #ffc5c5;
+}
+
+.form_toggle .item-2 input[type=radio]:checked+label {
+	background: #bbffbb;
+}
 </style>
 </head>
 <body>
@@ -113,88 +155,96 @@ body, html {
 		<!-- 텍스트 상자 구간 나누기 -->
 		<div class="container-fluid">
 			<div class="row">
-			<!-- 구간 1) 로고 이미지 및 학원 이름 ( 4칸 ) -->
-			<div class="col-sm-4">
-				<div class="text-center">
-					<img class="rogo-image" alt="rogo"
-						src="<spring:url value='/resources/img/settings.png'/>">
-					<br>
-					<h4 class="academy-name">학원 이름</h4>
-				</div>
-			</div>
-			<!-- 구간 1) END -->
-
-			<!-- 구간 2) 구분선 ( 1칸 ) -->
-			<div class="col-sm-1">
-				<div class="stripe"></div>
-			</div>
-			<!-- 구간 2) END -->
-
-			<!-- 구간 3) 로그인 입력창 및 조회 ( 7칸 ) -->
-			<div class="col-sm-7">
-				<div class="login">
-					<h4>학원 관리 프로그램</h4>
-					<p class="login-title-infor-tag">✧ 학생 및 직원 관리 솔루션 ✧</p>
-					<br>
-					<!-- form 태그 START -->
-					<form:form action="${root}admin/adminLogin"
-						id="adminLoginForm" method="POST"
-						modelAttribute="adminLoginDTO">
-					<div class="login-input">
-						<div class="form-group">
-							<!-- ID -->
-							<form:input class="form-control" path="admin_id"
-								placeholder="관리자 아이디" autocomplete="off"/>
-							<div class="common-errors-msg" id="adminIdCheck">
-							<form:errors path="admin_id"/>
-							</div>
-						</div>
-						<div class="form-group">
-							<!-- 비밀번호 -->
-							<form:password class="form-control" path="admin_pwd"
-								placeholder="관리자 비밀번호" autocomplete="off"
-								onkeyup="enterkey();"/>
-							<div class="common-errors-msg" id="adminPwdCheck">
-							<form:errors path="admin_pwd"/>
-							</div>
-						</div>
-						<!-- 로그인 입력 창 END -->
-						<div class="form-group" style="float: left; margin-bottom: 0px;">
-							<input type="checkbox">&nbsp;로그인 상태 유지
-						</div>
-						<!-- 로그인 버튼 -->
-						<div class="login-button">
-						<!-- 아이디, 비밀번호 일치하지 않을 경우 출력되는 에러 메시지 -->
-						<div class="common-errors-msg">${message}</div>
-						<button type="submit" class="btn btn-outline-secondary"
-							id="loginButton">LOGIN</button>
-						</div>
+				<!-- 구간 1) 로고 이미지 및 학원 이름 ( 4칸 ) -->
+				<div class="col-sm-4">
+					<div class="text-center">
+						<img class="rogo-image" alt="rogo"
+							src="<spring:url value='/resources/img/settings.png'/>"> <br>
+						<h4 class="academy-name">학원 이름</h4>
 					</div>
-					</form:form>
-					<!-- form 태그 END -->
 				</div>
-				<p class="forget-infor-tag">
-					<a href="javascript:void(0);" id="forgetInforTag"> 🔑 아이디 / 비밀번호를 잊으셨나요?</a>
-				</p>
-				<div class="forget-infor-msg" id="forgetInforMsg"></div>
-			</div>
-			<!-- 구간 3) END -->
+				<!-- 구간 1) END -->
+
+				<!-- 구간 2) 구분선 ( 1칸 ) -->
+				<div class="col-sm-1">
+					<div class="stripe"></div>
+				</div>
+				<!-- 구간 2) END -->
+
+				<!-- 구간 3) 로그인 입력창 및 조회 ( 7칸 ) -->
+				<div class="col-sm-7">
+					<div class="login">
+						<h4>학원 관리 프로그램</h4>
+						<p class="login-title-infor-tag">✧ 학생 및 직원 관리 솔루션 ✧</p>
+						<br>
+						<!-- form 태그 START -->
+						<form:form action="${root}admin/adminLogin" id="adminLoginForm"
+							method="POST" modelAttribute="adminLoginDTO">
+							<div class="login-input">
+								<div class="form-group">
+									<!-- ID -->
+									<form:input class="form-control" path="admin_id"
+										placeholder="관리자 아이디" autocomplete="off" />
+									<div class="common-errors-msg" id="adminIdCheck">
+										<form:errors path="admin_id" />
+									</div>
+								</div>
+								<div class="form-group">
+									<!-- 비밀번호 -->
+									<form:password class="form-control" path="admin_pwd"
+										placeholder="관리자 비밀번호" autocomplete="off"
+										onkeyup="enterkey();" />
+									<div class="common-errors-msg" id="adminPwdCheck">
+										<form:errors path="admin_pwd" />
+									</div>
+								</div>
+								<!-- 로그인 입력 창 END -->
+								<div class="form-group" style="float: left; margin-bottom: 0px;">
+									<div class="form_toggle">
+										<div class="form_toggle-item item-1">
+											<input id="fid-1" type="radio" name="radio" value="off"
+												checked> <label for="fid-1">OFF</label>
+										</div>
+										<div class="form_toggle-item item-2">
+											<input id="fid-2" type="radio" name="radio" value="on">
+											<label for="fid-2">로그인 상태 유지</label>
+										</div>
+									</div>
+								</div>
+								<!-- 로그인 버튼 -->
+								<div class="login-button">
+									<!-- 아이디, 비밀번호 일치하지 않을 경우 출력되는 에러 메시지 -->
+									<div class="common-errors-msg">${message}</div>
+									<button type="submit" class="btn btn-outline-secondary"
+										id="loginButton">LOGIN</button>
+								</div>
+							</div>
+						</form:form>
+						<!-- form 태그 END -->
+					</div>
+					<p class="forget-infor-tag">
+						<a href="javascript:void(0);" id="forgetInforTag"> 🔑 아이디 /
+							비밀번호를 잊으셨나요?</a>
+					</p>
+					<div class="forget-infor-msg" id="forgetInforMsg"></div>
+				</div>
+				<!-- 구간 3) END -->
 			</div>
 		</div>
 	</div>
-	
+
 	<script type="text/javascript">
-		$(document).ready(function(){	
+		$(document).ready(function() {
 			// ID 입력 값 존재하는지 확인
-			$("#admin_id").change(function(){
+			$("#admin_id").change(function() {
 				errorRemove("#admin_id", "#adminIdCheck");
 			});
-			
+
 			// 비밀번호 입력 값 존재하는지 확인
-			$("#admin_pwd").change(function(){
+			$("#admin_pwd").change(function() {
 				errorRemove("#admin_pwd", "#adminPwdCheck");
 			});
-			
+
 			// ID, 비밀번호 찾기
 			var admin_id;
 			var admin_pwd;
@@ -231,17 +281,17 @@ body, html {
 				}
 			});
 		});
-		
+
 		// 입력 값 존재하는 경우 에러 메시지 지우기
 		function errorRemove(id, msgID) {
 			var item = $(id).val();
-			
+
 			if (item != null || item != "") {
 				$(msgID).empty();
 				$(msgID).html("");
 			}
 		}
-		
+
 		// Enter 키 눌렀을 경우 로그인 처리
 		function enterkey() {
 			if (window.event.keyCode == 13) {

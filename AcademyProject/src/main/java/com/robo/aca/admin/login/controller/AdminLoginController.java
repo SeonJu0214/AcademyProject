@@ -60,7 +60,7 @@ public class AdminLoginController {
 				logger.info("로그인 완료 >>");
 				
 				// 세션 부여
-				session.setAttribute("admin_id", admin_id);
+				session.setAttribute("login_infor", admin_id);
 				return "main_board";
 			}
 		}
@@ -72,6 +72,6 @@ public class AdminLoginController {
 		adminLoginService.adminLogout(session);
 		logger.info("로그아웃 처리 완료.");
 		
-		return "redirect:/index";
+		return "redirect:/";
 	}
 }

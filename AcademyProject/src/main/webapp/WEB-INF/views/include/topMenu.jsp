@@ -60,7 +60,7 @@
 	<div class="header">
 		<a class="academy-name">학원 이름</a>
 		<a class="logout" href="${root}admin/adminLogout">LOGOUT</a>
-		<a class="admin-id-infor">${admin_id}님 환영합니다  ٩(*•̀ᴗ•́*)و</a>
+		<a class="admin-id-infor">${login_infor}님 환영합니다  ٩(*•̀ᴗ•́*)و</a>
 	</div>
 
 	<!-- Main Menu 출력 -->
