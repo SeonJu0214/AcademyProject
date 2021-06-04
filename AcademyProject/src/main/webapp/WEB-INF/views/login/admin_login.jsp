@@ -159,7 +159,9 @@ body, html {
 							</div>
 						</div>
 						<!-- 로그인 입력 창 END -->
-						
+						<div class="form-group" style="float: left; margin-bottom: 0px;">
+							<input type="checkbox">&nbsp;로그인 상태 유지
+						</div>
 						<!-- 로그인 버튼 -->
 						<div class="login-button">
 						<!-- 아이디, 비밀번호 일치하지 않을 경우 출력되는 에러 메시지 -->
