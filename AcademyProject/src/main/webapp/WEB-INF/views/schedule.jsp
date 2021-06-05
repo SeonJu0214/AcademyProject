@@ -18,7 +18,7 @@ th {
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-12" style="margin-top: 20px;">
-				<table class="table table-bordered" style="text-align: center;">
+				<table class="table table-bordered" style="text-align: center; background-color: white;">
 					<colgroup>
 						<%
 							for (int i = 0; i <= 6; i++) {

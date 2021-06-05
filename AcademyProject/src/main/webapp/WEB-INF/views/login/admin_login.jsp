@@ -103,6 +103,7 @@ body, html {
 	margin-left: 20px;
 }
 
+/*
 .form_toggle {
 	display: inline-block;
 	overflow: hidden;
@@ -144,6 +145,7 @@ body, html {
 .form_toggle .item-2 input[type=radio]:checked+label {
 	background: #bbffbb;
 }
+*/
 </style>
 </head>
 <body>
@@ -199,6 +201,7 @@ body, html {
 									</div>
 								</div>
 								<!-- 로그인 입력 창 END -->
+								<!--
 								<div class="form-group" style="float: left; margin-bottom: 0px;">
 									<div class="form_toggle">
 										<div class="form_toggle-item item-1">
@@ -211,6 +214,7 @@ body, html {
 										</div>
 									</div>
 								</div>
+								-->
 								<!-- 로그인 버튼 -->
 								<div class="login-button">
 									<!-- 아이디, 비밀번호 일치하지 않을 경우 출력되는 에러 메시지 -->

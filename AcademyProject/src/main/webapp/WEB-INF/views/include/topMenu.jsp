@@ -57,7 +57,7 @@
 </head>
 <body>
 	<!-- 상단 학원 정보 및 회원 정보, 로그아웃 메뉴 출력 -->
-	<div class="header">
+	<div class="header" style="background-color: #EAEAEA;">
 		<a class="academy-name">학원 이름</a>
 		<a class="logout" href="${root}admin/adminLogout">LOGOUT</a>
 		<a class="admin-id-infor">${login_infor}님 환영합니다  ٩(*•̀ᴗ•́*)و</a>
