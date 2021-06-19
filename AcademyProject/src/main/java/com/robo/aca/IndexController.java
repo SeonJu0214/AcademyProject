@@ -23,4 +23,11 @@ public class IndexController {
 	public String main_board() {
 		return "main_board";
 	}
+	
+	@GetMapping(value = "/board/test")
+	public String test(String date) {
+		logger.info(date);
+		
+		return "index";
+	}
 }
