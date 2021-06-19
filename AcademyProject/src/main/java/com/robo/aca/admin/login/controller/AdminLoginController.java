@@ -61,7 +61,7 @@ public class AdminLoginController {
 				
 				// 세션 부여
 				session.setAttribute("login_infor", admin_id);
-				return "main_board";
+				return "redirect:/";
 			}
 		}
 	}

@@ -65,7 +65,7 @@
 
 	<!-- Main Menu 출력 -->
 	<div id="navbar">
-		<a href="${root}schedule/main_board">HOME</a>
+		<a href="${root}/index">HOME</a>
 		<a>원생 관리</a>
 		<a>강좌 관리</a>
 		<a>상담 관리</a>

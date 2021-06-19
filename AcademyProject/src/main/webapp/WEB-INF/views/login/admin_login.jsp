@@ -103,40 +103,6 @@ body, html {
 	margin-left: 20px;
 }
 
-/*
-.form_toggle {
-	display: inline-block;
-	overflow: hidden;
-}
-
-.form_toggle-item {
-	float: left;
-	display: inline-block;
-}
-
-.form_toggle-item input[type=radio] {
-	display: none;
-}
-
-.form_toggle-item label {
-	display: inline-block;
-	padding: 0px 15px;
-	line-height: 34px;
-	border: 1px solid #999;
-	border-right: none;
-	cursor: pointer;
-	user-select: none;
-}
-
-.form_toggle .item-1 label {
-	border-radius: 6px 0 0 6px;
-}
-
-.form_toggle .item-2 label {
-	border-radius: 0 6px 6px 0;
-	border-right: 1px solid #999;
-}
-
 /* Checked */
 .form_toggle .item-1 input[type=radio]:checked+label {
 	background: #ffc5c5;
@@ -201,20 +167,7 @@ body, html {
 									</div>
 								</div>
 								<!-- 로그인 입력 창 END -->
-								<!--
-								<div class="form-group" style="float: left; margin-bottom: 0px;">
-									<div class="form_toggle">
-										<div class="form_toggle-item item-1">
-											<input id="fid-1" type="radio" name="radio" value="off"
-												checked> <label for="fid-1">OFF</label>
-										</div>
-										<div class="form_toggle-item item-2">
-											<input id="fid-2" type="radio" name="radio" value="on">
-											<label for="fid-2">로그인 상태 유지</label>
-										</div>
-									</div>
-								</div>
-								-->
+								
 								<!-- 로그인 버튼 -->
 								<div class="login-button">
 									<!-- 아이디, 비밀번호 일치하지 않을 경우 출력되는 에러 메시지 -->

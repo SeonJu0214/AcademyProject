@@ -10,5 +10,9 @@
 	<c:if test="${login_infor == null}">
 		<%@include file="login/admin_login.jsp"%>
 	</c:if>
+	
+	<c:if test="${login_infor != null}">
+		<%@include file="main_board.jsp"%>
+	</c:if>
 </body>
 </html>
